@@ -17,6 +17,42 @@ export function generateNodeHtml({id, positionX, positionY}: any) {
                     text-align: center;
                 ">${id}
                 </div>
+                <div id="node_output_container_${id}"
+                    style="
+                        position: absolute;
+                        top: 4px;
+                        right: -6px;
+                        cursor: alias;
+                ">
+                    <div id="node_output_${id}"
+                        style="
+                            width: 16px;
+                            height: 16px;
+                            background-color: #c3fa9e;
+                            border-radius: 50%;
+                            box-sizing: border-box;
+                            border: 2px solid #6a6a6a;
+                    ">
+                    </div>
+                </div>
+                <div id="node_input_container_${id}"
+                    style="
+                        position: absolute;
+                        top: 4px;
+                        right: 94px;
+                        cursor: alias;
+                ">
+                    <div id="node_input_${id}"
+                        style="
+                            width: 16px;
+                            height: 16px;
+                            background-color: #c3fa9e;
+                            border-radius: 50%;
+                            box-sizing: border-box;
+                            border: 2px solid #6a6a6a;
+                    ">
+                    </div>
+                </div>
 
             </div>
             `
