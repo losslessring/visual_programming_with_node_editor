@@ -1,13 +1,4 @@
-import { makeElementDraggableByChild } from "./functions/behaviour/makeElementDraggableByChild/makeElementDraggableByChild.js"
-import { generateNodeHtml } from "./functions/display/generateNodeHtml/generateNodeHtml.js"
+import { NodeBuilder } from "./classes/NodeBuilder/NodeBuilder.js"
 
-
-const workspace = document.querySelector("#workspace")
-
-
-workspace?.insertAdjacentHTML('beforeend', generateNodeHtml())
-
-const nodeContainer = document.getElementById(`node_container`)
-const nodeTitle = document.getElementById(`node_title`)
-
-makeElementDraggableByChild(nodeContainer, nodeTitle)
+const node0 = new NodeBuilder({id: 0, positionX: 90, positionY: 180})
+const node1 = new NodeBuilder({id: 1, positionX: 350, positionY: 250})
