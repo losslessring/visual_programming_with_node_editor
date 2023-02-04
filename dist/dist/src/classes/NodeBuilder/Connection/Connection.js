@@ -1,6 +1,8 @@
 export class Connection {
-    constructor({ id }) {
+    constructor({ id, fromElement, toElement }) {
         this.id = id;
+        this.fromElement = fromElement;
+        this.toElement = toElement;
     }
     initializeDraw(workspace) {
         workspace === null || workspace === void 0 ? void 0 : workspace.insertAdjacentHTML("beforeend", `<svg id="svg_container_${this.id}" style="
@@ -17,7 +19,13 @@ export class Connection {
     }
     draw() {
         var _a;
+        const fromBoundingRect = this.fromElement.getBoundingClientRect();
+        const toBoundingRect = this.toElement.getBoundingClientRect();
+        const fromX = fromBoundingRect.left + (fromBoundingRect.right - fromBoundingRect.left) / 2;
+        const fromY = fromBoundingRect.top + (fromBoundingRect.bottom - fromBoundingRect.top) / 2;
+        const toX = toBoundingRect.left + (toBoundingRect.right - toBoundingRect.left) / 2;
+        const toY = toBoundingRect.top + (toBoundingRect.bottom - toBoundingRect.top) / 2;
         (_a = document
-            .querySelector(`#svg_container_${this.id}`)) === null || _a === void 0 ? void 0 : _a.insertAdjacentHTML("beforeend", `<line id="svg_line_${this.id}" x1="10" y1="10" x2="200" y2="200" stroke="black" stroke-width="1"/>`);
+            .querySelector(`#svg_container_${this.id}`)) === null || _a === void 0 ? void 0 : _a.insertAdjacentHTML("beforeend", `<line id="svg_line_${this.id}" x1="${fromX}" y1="${fromY}" x2="${toX}" y2="${toY}" stroke="black" stroke-width="1"/>`);
     }
 }

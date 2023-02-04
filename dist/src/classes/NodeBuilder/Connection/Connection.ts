@@ -1,9 +1,12 @@
 export class Connection {
     id: string
+    fromElement: HTMLElement
+    toElement: HTMLElement
 
-
-    constructor({id}: any) {
+    constructor({id, fromElement, toElement}: any) {
         this.id = id
+        this.fromElement = fromElement
+        this.toElement = toElement
     }
 
     initializeDraw(workspace: any) {
@@ -24,11 +27,21 @@ export class Connection {
     }
 
     draw() {
+
+        const fromBoundingRect = this.fromElement.getBoundingClientRect()
+        const toBoundingRect = this.toElement.getBoundingClientRect()
+
+        const fromX = fromBoundingRect.left + (fromBoundingRect.right - fromBoundingRect.left) / 2
+        const fromY = fromBoundingRect.top + (fromBoundingRect.bottom - fromBoundingRect.top) / 2
+
+        const toX = toBoundingRect.left + (toBoundingRect.right - toBoundingRect.left) / 2
+        const toY = toBoundingRect.top + (toBoundingRect.bottom - toBoundingRect.top) / 2
+
         document
             .querySelector(`#svg_container_${this.id}`)
             ?.insertAdjacentHTML(
                 "beforeend",
-                `<line id="svg_line_${this.id}" x1="10" y1="10" x2="200" y2="200" stroke="black" stroke-width="1"/>`
+                `<line id="svg_line_${this.id}" x1="${fromX}" y1="${fromY}" x2="${toX}" y2="${toY}" stroke="black" stroke-width="1"/>`
             )
     }
 }
