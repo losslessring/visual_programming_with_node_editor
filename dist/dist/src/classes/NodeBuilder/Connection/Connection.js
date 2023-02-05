@@ -28,4 +28,12 @@ export class Connection {
         (_a = document
             .querySelector(`#svg_container_${this.id}`)) === null || _a === void 0 ? void 0 : _a.insertAdjacentHTML("beforeend", `<line id="svg_line_${this.id}" x1="${fromX}" y1="${fromY}" x2="${toX}" y2="${toY}" stroke="black" stroke-width="1"/>`);
     }
+    erase() {
+        var _a;
+        (_a = document.querySelector(`#svg_line_${this.id}`)) === null || _a === void 0 ? void 0 : _a.remove();
+    }
+    update() {
+        this.erase();
+        this.draw();
+    }
 }

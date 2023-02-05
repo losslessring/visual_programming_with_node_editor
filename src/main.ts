@@ -12,3 +12,5 @@ const toElement = document.querySelector("#node_input_1")
 const connection0 = new Connection({id:0, fromElement, toElement})
 connection0.initializeDraw(workspace)
 connection0.draw() 
+
+workspace?.addEventListener("mousemove", (e) => connection0.update())

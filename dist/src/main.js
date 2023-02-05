@@ -8,3 +8,4 @@ const toElement = document.querySelector("#node_input_1");
 const connection0 = new Connection({ id: 0, fromElement, toElement });
 connection0.initializeDraw(workspace);
 connection0.draw();
+workspace === null || workspace === void 0 ? void 0 : workspace.addEventListener("mousemove", (e) => connection0.update());

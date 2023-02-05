@@ -44,4 +44,13 @@ export class Connection {
                 `<line id="svg_line_${this.id}" x1="${fromX}" y1="${fromY}" x2="${toX}" y2="${toY}" stroke="black" stroke-width="1"/>`
             )
     }
+
+    erase() {
+        document.querySelector(`#svg_line_${this.id}`)?.remove()
+    }
+
+    update() {
+        this.erase()
+        this.draw()
+    }
 }
