@@ -1,4 +1,4 @@
-export function makeElementDraggableByChild(element, draggableElement) {
+export function makeElementDraggableByChild({element, draggableElement, onDrag}) {
     // Make the DIV element draggable:
 
     let pos1 = 0,
@@ -35,6 +35,7 @@ export function makeElementDraggableByChild(element, draggableElement) {
         // set the element's new position:
         element.style.top = element.offsetTop - pos2 + "px"
         element.style.left = element.offsetLeft - pos1 + "px"
+        onDrag()
     }
 
     function closeDragElement() {

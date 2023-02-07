@@ -19,9 +19,6 @@ export class Connection {
     }
     draw() {
         var _a;
-        console.log(this.fromElement);
-        console.log(this.toElement);
-        console.log(this.id);
         const fromBoundingRect = this.fromElement.getBoundingClientRect();
         const toBoundingRect = this.toElement.getBoundingClientRect();
         const fromX = fromBoundingRect.left + (fromBoundingRect.right - fromBoundingRect.left) / 2;

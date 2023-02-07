@@ -27,9 +27,7 @@ export class Connection {
     }
 
     draw() {
-        console.log(this.fromElement)
-        console.log(this.toElement)
-        console.log(this.id)
+
         const fromBoundingRect = this.fromElement.getBoundingClientRect()
         const toBoundingRect = this.toElement.getBoundingClientRect()
 
