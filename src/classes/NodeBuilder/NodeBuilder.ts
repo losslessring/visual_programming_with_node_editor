@@ -1,11 +1,14 @@
 import { makeElementDraggableByChild } from "../../functions/behaviour/makeElementDraggableByChild/makeElementDraggableByChild.js"
 import { generateNodeHtml } from "../../functions/display/generateNodeHtml/generateNodeHtml.js"
 import { Connection } from "../Connection/Connection.js"
+import { NodeModel } from "../NodeModel/NodeModel.js"
 
 export class NodeBuilder {
-    constructor({nodeConnector, id, positionX = 100, positionY = 200}: any) {
+    constructor({nodeConnector, id, data, positionX = 100, positionY = 200}: any) {
+        
+        const node = new NodeModel({id, data})
+        
         const workspace = document.querySelector("#workspace")
-
 
         workspace?.insertAdjacentHTML('beforeend', generateNodeHtml({id, positionX, positionY}))
 
