@@ -13,9 +13,10 @@ export class NodeConnector {
 
     private createConnection({fromElement, toElement}: any) {
 
-        const id = Math.floor(100000000 + Math.random() * 900000000)
+        const fromId = fromElement.getAttribute('data-node_id')
+        const toId = toElement.getAttribute('data-node_id')
 
-        const connection = new Connection({id, fromElement, toElement})
+        const connection = new Connection({id:`${fromId}_${toId}`, fromElement, toElement})
         
         connection.initializeDraw(this.workspace)
         connection.draw() 

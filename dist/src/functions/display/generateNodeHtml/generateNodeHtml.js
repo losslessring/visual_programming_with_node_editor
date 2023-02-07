@@ -24,7 +24,7 @@ export function generateNodeHtml({ id, positionX, positionY }) {
                         right: -6px;
                         cursor: alias;
                 ">
-                    <div id="node_output_${id}"
+                    <div id="node_output_${id}" data-node_id="${id}"
                         style="
                             width: 16px;
                             height: 16px;
@@ -42,7 +42,7 @@ export function generateNodeHtml({ id, positionX, positionY }) {
                         right: 94px;
                         cursor: alias;
                 ">
-                    <div id="node_input_${id}"
+                    <div id="node_input_${id}" data-node_id="${id}"
                         style="
                             width: 16px;
                             height: 16px;
