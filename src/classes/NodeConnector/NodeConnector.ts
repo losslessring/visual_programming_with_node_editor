@@ -1,14 +1,17 @@
 import { Connection } from '../Connection/Connection.js'
+import { NodeModel } from '../NodeModel/NodeModel.js'
 
 export class NodeConnector {
     private fromElement: HTMLElement | undefined
     private toElement: HTMLElement | undefined
     private workspace: HTMLElement
     private connections: Connection[]
+    private nodes: NodeModel[]
 
     constructor({workspace}: any) {
         this.workspace = workspace
         this.connections = []
+        this.nodes = []
     }
 
     private createConnection({fromElement, toElement}: any) {
@@ -21,7 +24,14 @@ export class NodeConnector {
         connection.initializeDraw(this.workspace)
         connection.draw() 
         this.connections.push(connection)
-
+        
+        const childNode = this.nodes.find((node: any) => node.getId() === Number(toId))
+        const parentNode = this.nodes.find((node: NodeModel) => node.getId() === Number(fromId))
+        
+        if (childNode && parentNode){
+            parentNode.addChild(childNode)
+        }
+        console.log(parentNode)
     }
 
     getConnections() {
@@ -36,5 +46,13 @@ export class NodeConnector {
 
     setOutput(fromElement: HTMLElement) {
         this.fromElement = fromElement
+    }
+
+    addNode(node: NodeModel) {
+        this.nodes.push(node)
+    }
+
+    setNodeChild(id: number, childNodeId: NodeModel) {
+        //this.nodes.find((node: NodeModel) => node.getId() === childNodeId)
     }
 }
