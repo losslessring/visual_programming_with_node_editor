@@ -7,6 +7,8 @@ export class NodeBuilder {
     constructor({nodeConnector, id, data, positionX = 100, positionY = 200}: any) {
         
         const node = new NodeModel({id, data})
+
+        nodeConnector.addNode(node)
         
         const workspace = document.querySelector("#workspace")
 
