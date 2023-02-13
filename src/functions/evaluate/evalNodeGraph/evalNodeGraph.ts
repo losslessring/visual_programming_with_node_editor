@@ -2,7 +2,7 @@ import { NodeModel } from "src/classes/NodeModel/NodeModel.js"
 
 export function evalNodeGraph(node: NodeModel, result: any) {
 
-    const nodeData = node.getData()
+    const nodeData = eval(node.getData())
     const nodeChildren = node.getChildren()
 
     console.log(`Value of current node is ${nodeData}`)

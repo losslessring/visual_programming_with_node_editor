@@ -17,6 +17,14 @@ export function generateNodeHtml({id, positionX, positionY}: any) {
                     text-align: center;
                 ">${id}
                 </div>
+                <div id="node_code_input_container_${id}" style="display:flex;">
+                    <input type="text" id="node_code_input_${id}" style="
+                            width: 100%;
+                            border: none;
+                            border-radius: 2px;
+                            margin: 3px 1px 0px 1px
+                    ">    
+                </div>
                 <div id="node_output_container_${id}"
                     style="
                         position: absolute;

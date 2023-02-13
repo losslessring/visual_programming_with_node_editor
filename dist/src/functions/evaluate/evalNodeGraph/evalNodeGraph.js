@@ -1,5 +1,5 @@
 export function evalNodeGraph(node, result) {
-    const nodeData = node.getData();
+    const nodeData = eval(node.getData());
     const nodeChildren = node.getChildren();
     console.log(`Value of current node is ${nodeData}`);
     if (nodeChildren.length === 0) {

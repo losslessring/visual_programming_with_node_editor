@@ -15,5 +15,8 @@ export class NodeBuilder {
         const nodeOutput = document.getElementById(`node_output_${id}`);
         nodeOutput === null || nodeOutput === void 0 ? void 0 : nodeOutput.addEventListener("mousedown", (e) => nodeConnector.setOutput(e.target));
         nodeInput === null || nodeInput === void 0 ? void 0 : nodeInput.addEventListener("mouseup", (e) => nodeConnector.setInput(e.target));
+        const nodeCodeInputField = document.getElementById(`node_code_input_${id}`);
+        nodeCodeInputField.value = data;
+        nodeCodeInputField === null || nodeCodeInputField === void 0 ? void 0 : nodeCodeInputField.addEventListener("change", (e) => node.setData(e.target.value));
     }
 }
