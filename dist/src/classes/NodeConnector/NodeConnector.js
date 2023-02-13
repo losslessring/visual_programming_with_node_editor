@@ -33,4 +33,7 @@ export class NodeConnector {
     addNode(node) {
         this.nodes.push(node);
     }
+    getNodes() {
+        return this.nodes;
+    }
 }

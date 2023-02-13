@@ -52,4 +52,8 @@ export class NodeConnector {
     addNode(node: NodeModel){
         this.nodes.push(node)
     }
+
+    getNodes() {
+        return this.nodes
+    }
 }
