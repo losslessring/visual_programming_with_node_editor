@@ -17,6 +17,11 @@ export class NodeBuilder {
         nodeInput === null || nodeInput === void 0 ? void 0 : nodeInput.addEventListener("mouseup", (e) => nodeConnector.setInput(e.target));
         const nodeCodeInputField = document.getElementById(`node_code_input_${id}`);
         nodeCodeInputField.value = data;
-        nodeCodeInputField === null || nodeCodeInputField === void 0 ? void 0 : nodeCodeInputField.addEventListener("change", (e) => node.setData(e.target.value));
+        nodeCodeInputField === null || nodeCodeInputField === void 0 ? void 0 : nodeCodeInputField.addEventListener("change", (e) => {
+            node.setData(e.target.value);
+            console.log(node.getData());
+        });
+        const nodeActionButton = document.getElementById(`node_action_${id}`);
+        nodeActionButton === null || nodeActionButton === void 0 ? void 0 : nodeActionButton.addEventListener("mousedown", (e) => console.log(node.getData()));
     }
 }

@@ -61,7 +61,18 @@ export function generateNodeHtml({id, positionX, positionY}: any) {
                     ">
                     </div>
                 </div>
-
+                <div id="node_action_container_${id}">
+                    <div id="node_action_${id}" style="
+                        background-color: #c3fa9e;
+                        cursor: default;
+                        border-radius: 6px 6px 6px 6px; 
+                        padding: 2px 0px 2px 0px; 
+                        text-align: center;
+                        margin: 3px 1px 0px 1px;
+                    ">
+                        action
+                    </div>
+                </div>
             </div>
             `
 }

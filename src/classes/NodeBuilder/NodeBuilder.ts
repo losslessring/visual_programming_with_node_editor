@@ -29,6 +29,13 @@ export class NodeBuilder {
 
         const nodeCodeInputField = document.getElementById(`node_code_input_${id}`) as HTMLInputElement
         nodeCodeInputField.value = data
-        nodeCodeInputField?.addEventListener("change", (e: any) => node.setData(e.target.value))
+        nodeCodeInputField?.addEventListener("change", (e: any) => {
+            node.setData(e.target.value)
+            console.log(node.getData()) 
+        })
+
+        const nodeActionButton = document.getElementById(`node_action_${id}`)
+
+        nodeActionButton?.addEventListener("mousedown", (e) => console.log(node.getData()))
     }
 }
