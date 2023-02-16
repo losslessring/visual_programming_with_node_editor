@@ -4,7 +4,7 @@ export function evalNodeGraph(node, result) {
     console.log(`Value of current node is ${nodeData}`);
     if (nodeChildren.length === 0) {
         if (typeof nodeData === "function") {
-            console.log(`Final value is ${nodeData(result)}`);
+            console.log(`Final evaluated result is ${nodeData(result)}`);
             return nodeData(result);
         }
         else {
@@ -13,6 +13,7 @@ export function evalNodeGraph(node, result) {
     }
     if (typeof nodeData === "function") {
         const newValue = nodeData(result);
+        console.log(`Current evaluated result is ${newValue}`);
         nodeChildren.forEach((childNode) => evalNodeGraph(childNode, newValue));
     }
     else {
